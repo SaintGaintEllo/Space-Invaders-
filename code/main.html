@@ -6,18 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Invaders</title>
+    
 </head>
 <body>
 <button id="GameOverScreen" disabled="true" style="display:none">Game Over</button>
 <div id="HeartsAndPlayer">   
 
-
+<label id="HeartLabel" for="Hearts">Hearts</label>
 <div id="Hearts">
+    
     <img id="HeartOne" src="imgs/Hearts/HeartOne.png">
     <img id="HeartTwo" src="imgs/Hearts/HeartTwo.png">
     <img id="HeartThree" src="imgs/Hearts/HeartThree.png">
     <img id="HeartFour" src="imgs/Hearts/HeartFour.png">
     <button id="GotHitTest" onclick="GotHit()">GotHitTest</button>
+    <button id="GameOverTest" onclick="GameOver()">GameOverTest</button>
     <p id="Debugging"></p>
 </div>
 </div>
