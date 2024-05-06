@@ -13,7 +13,7 @@ function shootbutton() {
     shoot()
 }
 function shoot(){
-    
+    console.log("sync")
 }
 function GotHit(){
     life -= 1;
