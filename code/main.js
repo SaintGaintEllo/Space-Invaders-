@@ -1,5 +1,5 @@
 const playerElement = document.getElementById("Player");
-playerElement.style.left=500
+playerElement.style.left=500;
 function MovePlayerRight(amount=10)
 {
     playerElement.style.left+=amount;
@@ -19,8 +19,10 @@ class key
 }
 let Keys=key()
 
-var life=4;
+var life = 4;
 var isalive=true;
+
+
 if(life<=0){
     isalive = false;
     GameOver()
@@ -36,6 +38,8 @@ function shoot(){
 }
 function GotHit(){
     life -= 1;
+    lifestring=life.toString();
+    document.getElementById("Debugging").innerHTML = lifestring;
     if(life==3) {
         document.getElementById("HeartFour").style.display = "none";
     }else if (life==2) {
