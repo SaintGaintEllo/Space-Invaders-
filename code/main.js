@@ -38,8 +38,8 @@ function shoot(){
 }
 function GotHit(){
     life -= 1;
-    lifestring=life.toString();
-    document.getElementById("Debugging").innerHTML = lifestring;
+    console.log( `${life}`)
+    document.getElementById("Debugging").innerHTML =;
     if(life==3) {
         document.getElementById("HeartFour").style.display = "none";
     }else if (life==2) {
