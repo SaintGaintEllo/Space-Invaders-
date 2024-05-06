@@ -11,4 +11,9 @@
 }
 #Hearts{
     flex-direction: row;
+    position: absolute;
+
+}
+.player{
+    bottom: 10%;
 }

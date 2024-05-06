@@ -1,4 +1,23 @@
 const playerElement = document.getElementById("player");
+playerElement.style.left=500
+function MovePlayerRight(amount=10)
+{
+    playerElement.style.left+=amount;
+}
+function MovePlayerLeft(amount=10)
+{
+    playerElement.style.left-=amount;
+}
+
+class key
+{
+    key()
+    {
+        this.left=false;
+        this.right=false;
+    }
+}
+let Keys=key()
 
 var life=4;
 var isalive=true;
@@ -31,3 +50,31 @@ function GameOver(){
     document.getElementById("GameOverScreen").style.display= "block";
 
 }
+document.body.addEventListener(onkeydown, function(e)
+{
+    if(e==='37'){
+        Keys.left=true;
+    }
+    if(e==='38')
+    {
+        Keys.right=true
+    }
+})
+document.body.addEventListener(onkeyup, function(e)
+{
+    if(e==='37')
+    {
+        Keys.left=false;
+    }
+    if(e==='38')
+    {
+        Keys.right=false;
+    }
+})
+const loop=()=>
+    {
+        if(Keys.left)
+            {
+                
+            }
+    }
