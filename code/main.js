@@ -1,12 +1,20 @@
-const playerElement = document.getElementById("Player");
-playerElement.style.left=500
+
+const playerElement = document.createElement("img");
+playerElement.src="imgs/pls/MainShip-Base-FullHealth.png";
+playerElement.style.position="absolute";
+playerElement.style.top="90%";
+playerElement.style.left="500px"
+
+var playerPoss=500;
 function MovePlayerRight(amount=10)
 {
-    playerElement.style.left+=amount;
+    playerPoss+=amount;
+    playerElement.style.left=`${playerPoss}px`;
 }
 function MovePlayerLeft(amount=10)
 {
-    playerElement.style.left-=amount;
+    playerPoss-=amount;
+    playerElement.style.left=`${playerPoss}px`;
 }
 
 class key
@@ -17,7 +25,7 @@ class key
         this.right=false;
     }
 }
-let Keys=key()
+let Keys=new key()
 
 var life=4;
 var isalive=true;
@@ -36,8 +44,7 @@ function shoot(){
 }
 function GotHit(){
     life -= 1;
-    if(life==3) {
-        document.getElementById("HeartFour").style.display = "none";
+    if(life==3) {document.getElementById("HeartFour").style.display = "none";
     }else if (life==2) {
         document.getElementById("HeartThree").style.display = "none";
     }else if (life==1) {
@@ -50,7 +57,7 @@ function GameOver(){
     document.getElementById("GameOverScreen").style.display= "block";
 
 }
-document.body.addEventListener(onkeydown, function(e)
+document.addEventListener(onkeydown, function(e)
 {
     if(e==='a'){
         Keys.left=true;
@@ -60,15 +67,17 @@ document.body.addEventListener(onkeydown, function(e)
         Keys.right=true
     }
 })
-document.body.addEventListener(onkeyup, function(e)
+document.addEventListener(onkeyup, function(e)
 {
     if(e==='a')
     {
         Keys.left=false;
+        console.log("left true")
     }
     if(e==='d')
     {
         Keys.right=false;
+        console.log("right true")
     }
 })
 const loop=()=>
