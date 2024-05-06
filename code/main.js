@@ -1,3 +1,4 @@
+/*
 const playerElement = document.getElementById("Player");
 playerElement.style.left=500;
 function MovePlayerRight(amount=10)
@@ -8,7 +9,7 @@ function MovePlayerLeft(amount=10)
 {
     playerElement.style.left-=amount;
 }
-
+*/
 class key
 {
     key()
@@ -17,7 +18,7 @@ class key
         this.right=false;
     }
 }
-let Keys=key()
+let Keys=new key()
 
 var life = 4;
 var isalive=true;
@@ -39,7 +40,7 @@ function shoot(){
 function GotHit(){
     life -= 1;
     console.log( `${life}`)
-    //document.getElementById("Debugging").innerHTML 
+    document.getElementById("Debugging").innerHTML =`${life}`;
     if(life==3) {
         document.getElementById("HeartFour").style.display = "none";
     }else if (life==2) {
@@ -54,7 +55,7 @@ function GameOver(){
     document.getElementById("GameOverScreen").style.display= "block";
 
 }
-document.body.addEventListener(onkeydown, function(e)
+document.addEventListener(onkeydown, function(e)
 {
     if(e==='a'){
         Keys.left=true;
@@ -64,10 +65,11 @@ document.body.addEventListener(onkeydown, function(e)
         Keys.right=true
     }
 })
-document.body.addEventListener(onkeyup, function(e)
+document.addEventListener(onkeyup, function(e)
 {
     if(e==='a')
-    {
+    {const playerElement = document.getElementById("Player");
+    playerElement.style.left=500;
         Keys.left=false;
     }
     if(e==='d')
@@ -79,13 +81,10 @@ const loop=()=>
     {
         if(Keys.left)
         {   
-            MovePlayerLeft();        
-        }
-        if(Keys.right)
-        {
-            MovePlayerRight();
+            MovePlayerLeft();Hearts
         }
     }
+setInterval(loop,15)    
 setInterval(loop,15)
 function CodePadding(){
     console.log("djajduyagsdgsa")
