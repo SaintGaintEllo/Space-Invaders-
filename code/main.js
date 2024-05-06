@@ -1,4 +1,4 @@
-const playerElement = document.getElementById("player");
+const playerElement = document.getElementById("Player");
 playerElement.style.left=500
 function MovePlayerRight(amount=10)
 {
@@ -52,21 +52,21 @@ function GameOver(){
 }
 document.body.addEventListener(onkeydown, function(e)
 {
-    if(e==='37'){
+    if(e==='a'){
         Keys.left=true;
     }
-    if(e==='38')
+    if(e==='d')
     {
         Keys.right=true
     }
 })
 document.body.addEventListener(onkeyup, function(e)
 {
-    if(e==='37')
+    if(e==='a')
     {
         Keys.left=false;
     }
-    if(e==='38')
+    if(e==='d')
     {
         Keys.right=false;
     }
@@ -74,7 +74,12 @@ document.body.addEventListener(onkeyup, function(e)
 const loop=()=>
     {
         if(Keys.left)
-            {
-                
-            }
+        {   
+            MovePlayerLeft();        
+        }
+        if(Keys.right)
+        {
+            MovePlayerRight();
+        }
     }
+setInterval(loop,15)

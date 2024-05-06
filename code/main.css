@@ -7,13 +7,15 @@
 }
 #HeartsAndPlayer{
     flex-direction: column;
-    
+    position: absolute;
+    bottom: 5%;   
 }
 #Hearts{
     flex-direction: row;
-    position: absolute;
+    
 
 }
 .player{
-    bottom: 10%;
+    bottom: 50px;
+    position: absolute;
 }
