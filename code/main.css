@@ -5,6 +5,10 @@
     color: red;
     font-family: cursive;
 }
+#HeartsAndPlayer{
+    flex-direction: column;
+    
+}
 #Hearts{
     flex-direction: row;
 }

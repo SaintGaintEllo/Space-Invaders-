@@ -9,6 +9,12 @@ if(life<=0){
 } else {
 
 }
+function shootbutton() {
+    shoot()
+}
+function shoot(){
+    
+}
 function GotHit(){
     life -= 1;
     if(life==3) {
