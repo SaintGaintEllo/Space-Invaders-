@@ -5,3 +5,6 @@
     color: red;
     font-family: cursive;
 }
+#Hearts{
+    flex-direction: row;
+}
