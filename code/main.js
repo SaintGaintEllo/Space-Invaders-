@@ -81,11 +81,19 @@ const loop=()=>
     {
         if(Keys.left)
         {   
-            MovePlayerLeft();        
-        }
-        if(Keys.right)
-        {
-            MovePlayerRight();
+            MovePlayerLeft();Hearts
         }
     }
 setInterval(loop,15)    
+setInterval(loop,15)
+function CodePadding(){
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+}

@@ -1,9 +1,10 @@
 #GameOverScreen{
-    height: max-content;
-    width: max-content;
+    height: 100%;
+    width: 100%;
     background-color: black;
     color: red;
     font-family: cursive;
+    justify-content: center;
 }
 #HeartsAndPlayer{
     flex-direction: column;
@@ -18,4 +19,8 @@
 .player{
     bottom: 50px;
     position: absolute;
+}
+#HeartLabel{
+    font-family: cursive; 
+    color: crimson;  
 }
