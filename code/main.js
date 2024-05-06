@@ -39,7 +39,7 @@ function shoot(){
 function GotHit(){
     life -= 1;
     console.log( `${life}`)
-    document.getElementById("Debugging").innerHTML =;
+    //document.getElementById("Debugging").innerHTML 
     if(life==3) {
         document.getElementById("HeartFour").style.display = "none";
     }else if (life==2) {
@@ -87,3 +87,14 @@ const loop=()=>
         }
     }
 setInterval(loop,15)
+function CodePadding(){
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+    console.log("djajduyagsdgsa")
+}
