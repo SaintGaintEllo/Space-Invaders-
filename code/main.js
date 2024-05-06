@@ -40,7 +40,7 @@ function shoot(){
 function GotHit(){
     life -= 1;
     console.log( `${life}`)
-    document.getElementById("Debugging").innerHTML =;
+    document.getElementById("Debugging").innerHTML =`${life}`;
     if(life==3) {
         document.getElementById("HeartFour").style.display = "none";
     }else if (life==2) {
