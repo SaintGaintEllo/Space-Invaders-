@@ -1,5 +1,5 @@
-/*
-const playerElement = document.getElementById("Player");
+
+const playerElement = document.getElementById("player");
 playerElement.style.left=500;
 function MovePlayerRight(amount=10)
 {
@@ -9,7 +9,7 @@ function MovePlayerLeft(amount=10)
 {
     playerElement.style.left-=amount;
 }
-*/
+
 class key
 {
     key()
@@ -68,7 +68,7 @@ document.addEventListener(onkeydown, function(e)
 document.addEventListener(onkeyup, function(e)
 {
     if(e==='a')
-    {const playerElement = document.getElementById("Player");
+    {const playerElement = document.getElementById("player");
     playerElement.style.left=500;
         Keys.left=false;
     }
@@ -81,7 +81,7 @@ const loop=()=>
     {
         if(Keys.left)
         {   
-            MovePlayerLeft();Hearts
+            MovePlayerLeft();
         }
     }
 setInterval(loop,15)    
