@@ -5,8 +5,7 @@ function MovePlayerRight(amount=10)
 {
     playerElement.style.left+=amount;
 }
-function MovePlayerLeft(amount=10)
-{
+function MovePlayerLeft(amount=10){
     playerElement.style.left-=amount;
 }
 
@@ -57,8 +56,10 @@ function GameOver(){
 }
 document.addEventListener(onkeydown, function(e)
 {
+    alert(e)
     if(e==='a'){
         Keys.left=true;
+        
     }
     if(e==='d')
     {
