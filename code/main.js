@@ -8,7 +8,7 @@ function MovePlayerRight(amount=10)
 function MovePlayerLeft(amount=10){
     playerElement.style.left-=amount;
 }
-
+// Denne delelen tuller med min kode for en eller annen grunn.. IDK WHY PLEASE WORK PLEASE
 class key
 {
     key()
