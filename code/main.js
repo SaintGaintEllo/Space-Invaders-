@@ -1,4 +1,4 @@
-
+const body
 const playerElement = document.getElementById("player");
 playerElement.style.left=500;
 function MovePlayerRight(amount=10)
