@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="main.js"></script>
-<style href="main.css"></style>
+
 <head>
+    <link rel="stylesheet" herf="main.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Invaders</title>
     
 </head>
-<body>
+<body id ="body">
 <button id="GameOverScreen"  style="display:none">Game Over</button>
 <div id="HeartsAndPlayer">   
 
@@ -21,9 +21,13 @@
     <img id="HeartFour" src="imgs/Hearts/HeartFour.png">
     <button id="GotHitTest" onclick="GotHit()">GotHitTest</button>
     <button id="GameOverTest" onclick="GameOver()">GameOverTest</button>
+    <button id="MovePlayerLeft" onclick="MovePlayerLeft()">MovePlayerLeftTest</button>
+    <button onclick="buletShootingLoop()">BulletTest</button>
     <p id="Debugging"></p>
 </div>
-</div>
-<img src="imgs/pls/Main Ship - Base - Full health.png" id="player"> 
+</div> 
+<div id="screen"></div>
+<img src="imgs/pls/FullHealth.png" id="player">
 </body>
+<script src="main.js"></script>
 </html>

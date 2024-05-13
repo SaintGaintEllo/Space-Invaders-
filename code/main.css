@@ -21,11 +21,20 @@
     
 
 }
-.player{
-    bottom: 50px;
-    position: absolute;
+#player{
+    position:fixed;
+    top:100px;
+    visibility: visible;
 }
 #HeartLabel{
     font-family: cursive; 
     color: crimson;  
+}
+#screen
+{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background-image: url("Space-Invaders-/code/imgs/background/space2_4-frames.gif");
 }
