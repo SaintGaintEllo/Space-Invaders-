@@ -5,6 +5,7 @@ var screen = document.getElementById("screen")
     playerElement.style.left="500px";
     playerElement.style.top="80%";
     let arrayOfbulets=[];
+    let arrayOfEnemies=[];
     let playerPos=500;
     function MovePlayerRight(amount=10)
     {
@@ -60,19 +61,20 @@ var screen = document.getElementById("screen")
             this.x=x
             this.y=y
             this.createElement();
+            arrayOfEnemies.push(this)
         }
         createElement()
         {
             this.img=document.createElement("img");
             body.appendChild(this.img)
-            this.img.style.top=`${this.y}px`;
+            this.img.style.top=`${this.y}%`;
             this.img.style.left=`${this.x}px`
             this.img.src="imgs/enemies/Nautolan Ship - Fighter - Base.png"
             this.img.style.position="absolute"
         }
     
     }
-    enemie= new enemies(500,120);
+    enemie= new enemies(500,12);
     const Keys=new key();
     var isalive=true;
     let life=3;
@@ -97,9 +99,16 @@ var screen = document.getElementById("screen")
             document.getElementById("HeartFour").style.display = "none";
         }else if (life==2) {
             document.getElementById("HeartThree").style.display = "none";
-        }else if (life<=1) {
+        }else if (life==1) {
             document.getElementById("HeartOne").style.display = "none";
-        }life -= 1;
+        }else if(life<=0)
+        {
+            document.getElementById("HeartTwo").style.display = "none";  
+        }
+        if(life>=0)
+        {
+            life -= 1;
+        }
     }
     function GameOver(){
         document.getElementById("GameOverScreen").style.display= "block";
@@ -113,7 +122,6 @@ document.body.addEventListener("keydown", function(e)
 
     if(e.key==='a'){
         Keys.left=true;
-        
     }
     if(e.key==='d')
     {
@@ -132,6 +140,18 @@ document.addEventListener("keyup", function(e)
         Keys.right=false;
     }
 })
+function deleteBulet(i)
+{
+    arrayOfbulets[i].img.remove()
+    delete arrayOfbulets[i]
+    arrayOfbulets.splice(i,1)
+}
+function deleteEnemy(i)
+{
+    arrayOfEnemies[i].img.remove()
+    delete arrayOfEnemies[i]
+    arrayOfEnemies.splice(i,1)
+}
 const loop=()=>
     {
         if(Keys.left)
@@ -160,14 +180,25 @@ const bulletMoveLoop=()=>
         arrayOfbulets[i].UpdatePos()
         if(arrayOfbulets[i].prosent<=0)
         {
-            arrayOfbulets[i].img.remove()
-            delete arrayOfbulets[i]
-            arrayOfbulets.splice(i,1)
-
+            deleteBulet(i);
         }
     }
     console.log(arrayOfbulets[0],arrayOfbulets[1])
 }
+const checkIfHitLoop=()=>{
+    for(let i =0; i<arrayOfEnemies.length;i++)  
+        {
+            for(let j =0; j <arrayOfbulets.length;j++)
+            {
+                if(arrayOfbulets[j].imgs.style.top=arrayOfEnemies[i].img.style.bottom && arrayOfbulets[j].imgs.style.left<arrayOfEnemies[i].img.style.left && arrayOfEnemies[i].right>=arrayOfbulets[j].img.style.right)
+                    {
+                        deleteBulet(j);
+                        deleteEnemy(j);
+                    }
+            }
+        }
+}
+setInterval(checkIfHitLoop)
 setInterval(loop,15)
 setInterval(buletShootingLoop,1500)
 setInterval(bulletMoveLoop,25)
