@@ -5,7 +5,7 @@ playerElement.style.position="absolute"
 playerElement.style.left="500px";
 playerElement.style.top="80%";
 let arrayOfbulets=[];
-let arrayOfEnim=[]
+let arrayOfEnemies=[]
 let playerPos=500;
 function MovePlayerRight(amount=10)
 {
@@ -61,7 +61,7 @@ class enemies
         this.x=x
         this.y=y
         this.createElement();
-        arrayOfEnim.push(this)
+        arrayOfEnemies.push(this)
     }
     createElement()
     {
@@ -187,7 +187,7 @@ const checkIfHitLoop=()=>{
         {
             for(let j =0; j <arrayOfbulets.length;j++)
             {
-                if(arrayOfbulets[j].imgs.style.top=arrayOfEnemies[i].img.style.bottom && arrayOfbulets[j].imgs.style.left<arrayOfEnemies[i].img.style.left && arrayOfEnemies[i].right>=arrayOfbulets[j].img.style.right)
+                if(arrayOfbulets[j].imgs.style.top==arrayOfEnemies[i].img.style.bottom && arrayOfbulets[j].imgs.style.left<arrayOfEnemies[i].img.style.left && arrayOfEnemies[i].right>=arrayOfbulets[j].img.style.right)
                     {
                         deleteBulet(j);
                         deleteEnemy(j);
