@@ -113,14 +113,13 @@ document.body.addEventListener("keydown", function(e)
 {
 console.log(e)
 
-if(e.key==='a'){
-    Keys.left=true;
-    
-}
-if(e.key==='d')
-{
-    Keys.right=true
-}
+    if(e.key==='a'){
+        Keys.left=true;
+    }
+    if(e.key==='d')
+    {
+        Keys.right=true
+    }
 })
 
 document.addEventListener("keyup", function(e)
@@ -134,6 +133,18 @@ if(e.key==='d')
     Keys.right=false;
 }
 })
+function deleteBulet(i)
+{
+    arrayOfbulets[i].img.remove()
+    delete arrayOfbulets[i]
+    arrayOfbulets.splice(i,1)
+}
+function deleteEnemy(i)
+{
+    arrayOfEnemies[i].img.remove()
+    delete arrayOfEnemies[i]
+    arrayOfEnemies.splice(i,1)
+}
 const loop=()=>
 {
     if(Keys.left)
@@ -161,29 +172,30 @@ for(let i=0;i<arrayOfbulets.length;i++)
     arrayOfbulets[i].UpdatePos()
     if(arrayOfbulets[i].prosent<=0)
     {
-        arrayOfbulets[i].img.remove()
-        delete arrayOfbulets[i]
-        arrayOfbulets.splice(i,1)
-
+        
+        arrayOfbulets[i].prosent-=1
+        arrayOfbulets[i].UpdatePos()
+        if(arrayOfbulets[i].prosent<=0)
+        {
+            deleteBulet(i);
+        }
     }
 }
-} 
-const checkIfHitLoop= ()=>
-{
- for(let i=0; i<arrayOfEnim.length;i++)
-    {
-        for(let j=0; j<arrayOfbulets;j++)
+}
+const checkIfHitLoop=()=>{
+    for(let i =0; i<arrayOfEnemies.length;i++)  
         {
-            if(arrayOfbulets[j].img.style.top-4==arrayOfEnim[i].img.style.top && arrayOfbulets[j].img.style.left>=arrayOfEnim[i].img.style.left && arrayOfbulets[j].img.style.left<=arrayOfEnim[i].img.style.right)
+            for(let j =0; j <arrayOfbulets.length;j++)
             {
-                console.log("sad")
+                if(arrayOfbulets[j].imgs.style.top=arrayOfEnemies[i].img.style.bottom && arrayOfbulets[j].imgs.style.left<arrayOfEnemies[i].img.style.left && arrayOfEnemies[i].right>=arrayOfbulets[j].img.style.right)
+                    {
+                        deleteBulet(j);
+                        deleteEnemy(j);
+                    }
             }
         }
-
-
-    }
-    console.log(`enemy:${arrayOfEnim[0].img.style.left}, ${arrayOfEnim[0].img.style.right}`)
-} 
+}
+setInterval(checkIfHitLoop)
 setInterval(loop,15)
 setInterval(buletShootingLoop,1500)
 setInterval(bulletMoveLoop,25)
